@@ -1,5 +1,5 @@
-#include "structs.h"
-#include "func.h"
+#include "lib/structs.h"
+#include "lib/func.h"
 #include <locale.h>
 
 int main(int argc, char const *argv[]){

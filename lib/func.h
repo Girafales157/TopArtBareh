@@ -26,6 +26,6 @@ void relatorios();
 
 long lerSeForInteiro();
 
-#include "func.c"
+#include "../src/func.c"
 
 #endif
