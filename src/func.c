@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "../lib/func.h"
+#include "../lib/discentes.h"
 
 void menu(){
     long i; // input
@@ -35,17 +37,7 @@ void menu(){
             relatorios();
             break;
         case 0:
-            char opt;
-            printf("\n\n\tVocê tem certeza de que deseja sair? [S/N]");
-            printf("\n\tResposta: ");
-            scanf("%c", &opt);
-            if (opt == 'S' || opt == 's' || opt == '0'){
-                system("clear");
-                system("exit");
-            } else {
-                system("clear");
-                menu();
-            }
+            sair();
             break;
         default:
             printf("------> RESPONDA APENAS COM AS OPÇÕES NA TELA");
@@ -71,6 +63,8 @@ void discentes(){
     system("clear");
 
     switch (i){
+        case 1:
+            matricular();
         case 0:
             menu();
             break;
@@ -195,6 +189,22 @@ long lerSeForInteiro(){
         } else {
             return numero;
         }
+    }
+}
+
+/* JANELAS POP-UP */
+
+void sair(){
+    char opt;
+    printf("\n\n\tVocê tem certeza de que deseja sair? [S/N]");
+    printf("\n\tResposta: ");
+    scanf("%c", &opt);
+    if (opt == 'S' || opt == 's' || opt == '0'){
+        system("clear");
+        system("exit");
+    } else {
+        system("clear");
+        menu();
     }
 }
 

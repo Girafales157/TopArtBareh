@@ -1,6 +1,8 @@
 #ifndef FUNC_H
 #define FUNC_H
 
+#include "structs.h"
+
 /* a. Listagem do cpf, nome e idade dos discentes.
 b. Listagem dos códigos, nomes, horas e número de vagas dos cursos.
 c. Listagem de todos os discentes a partir de uma palavra do nome.
@@ -18,6 +20,8 @@ void listagemE();
 void listagemF(int n);
 void listagemG();
 
+void sair();
+
 void menu();
 void discentes();
 void cursos();
@@ -26,6 +30,9 @@ void relatorios();
 
 long lerSeForInteiro();
 
+int matricularAluno(Discente d);
+
 #include "../src/func.c"
+#include "../src/matricular.c"
 
 #endif

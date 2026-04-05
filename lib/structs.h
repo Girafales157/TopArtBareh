@@ -3,9 +3,9 @@
 
 typedef struct {
     char cpf[11];
-    char nome[40];
+    char nome[51];
     int idade;
-} discente;
+} Discente;
 
 typedef struct {
     char codigo[8][20]; //todos os códigos da turma 
@@ -13,7 +13,7 @@ typedef struct {
     int horas;
     int vagas;
     int participantes;
-} curso;
+} Curso;
 
 typedef struct {
     int numero;
@@ -22,6 +22,6 @@ typedef struct {
     int ano;
     float nota; //média de nota na turma
     int horas_p; //horas participadas
-} turma;
+} Turma;
 
 #endif
