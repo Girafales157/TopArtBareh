@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "../lib/func.h"
 #include "../lib/discentes.h"
+#include "../lib/listagem.h"
 
 void menu(){
     long i; // input
@@ -133,16 +134,6 @@ void relatorios(){
 
     system("clear");
     
-    /*
-    a. Listagem do cpf, nome e idade dos discentes.
-    b. Listagem dos códigos, nomes, horas e número de vagas dos cursos.
-    c. Listagem de todos os discentes a partir de uma palavra do nome.
-    d. Listagem do número da turma, cpf, nome e nota do discente.
-    e. Listagem dos números das turmas, cpf, nome e nota do discente, bem como o código
-    e nome do curso.
-    f. Listagem do cpf, nome e nota do discente conforme o número da turma.
-    g. Listagem de todas as turmas, bem como a média das notas dos discentes.
-    */
     printf("\n\tRelatórios\n");
     printf("\t==================================================\n");
     printf("\t1. Listagem do cpf, nome e idade dos discentes.\n");
@@ -160,6 +151,13 @@ void relatorios(){
     system("clear");
 
     switch (i){
+        case 1:
+        case 2:
+        case 3: c(); break;
+        case 4:
+        case 5:
+        case 6:
+        case 7:
         case 0:
             menu();
             break;

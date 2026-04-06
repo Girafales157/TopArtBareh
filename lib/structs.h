@@ -1,6 +1,8 @@
 #ifndef STRUCTS_H
 #define STRUCTS_H
 
+#define ARQUIVO "alunos.txt"
+
 typedef struct {
     char cpf[11];
     char nome[51];

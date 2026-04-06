@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define ARQUIVO "alunos.txt"
+
 
 int matricularAluno(Discente d)
 {   
@@ -17,7 +17,7 @@ int matricularAluno(Discente d)
     for (int i = 0; d.nome[i] != '\n'; i++)
         fprintf(arquivo, "%c", d.nome[i]);
 
-    fprintf(arquivo, "%i\n", d.idade);
+    fprintf(arquivo, "(%i)\n", d.idade);
     
     fclose(arquivo);
         
