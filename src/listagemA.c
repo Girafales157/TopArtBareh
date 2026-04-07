@@ -11,7 +11,11 @@ void a(){
     FILE *arq;
     
     // fecha o programa se não conseguir ler o arquivo
-    if ( (arq = fopen(ARQUIVO, "r")) == NULL ) system("exit");
+    if ( (arq = fopen(ARQUIVO, "r")) == NULL ) {
+        printf("\n\tArquivo de alunos não encontrado.\n");
+        relatorios();
+        return;
+    }
     
     printf("\n\t[LISTAGEM: CPF, nome e idade dos alunos]\n\n");
 
