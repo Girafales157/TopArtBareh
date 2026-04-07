@@ -93,6 +93,9 @@ void cursos(){
     system("clear");
 
     switch (i){
+        case 1:
+            criarCurso();
+            break;
         case 0:
             menu();
             break;

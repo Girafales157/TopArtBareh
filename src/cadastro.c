@@ -6,6 +6,11 @@
 #include "../lib/func.h"
 #include "../lib/structs.h"
 
+#define CURSOS_ARQUIVO "cursos.txt"
+
+int cadastrarCurso(Curso c);
+int confirmarCurso(Curso c);
+
 void matricular() {
     Discente d;
     int continuarLoop = 1;
@@ -114,6 +119,127 @@ int confirmar(Discente d){
         system("clear");
         printf("------> RESPONDA APENAS COM AS OPÇÕES NA TELA");
         confirmar(d);
+    }
+}
+
+void criarCurso() {
+    Curso c;
+    int continuarLoop = 1;
+
+    while (continuarLoop == 1) {
+        while (1) {
+            printf("\n\t[Criação de curso]\n");
+            printf("\n\tCódigo do curso: ");
+            scanf("%19s", c.codigo[0]); getchar();
+
+            if (strlen(c.codigo[0]) > 0) {
+                break;
+            }
+        }
+
+        while (1) {
+            printf("\tNome do curso: ");
+            fgets(c.nome, 60, stdin);
+            c.nome[strcspn(c.nome, "\n")] = '\0';
+
+            for (int i = 0; c.nome[i] != '\0'; i++) {
+                c.nome[i] = toupper((unsigned char)c.nome[i]);
+            }
+
+            if (strlen(c.nome) > 0) {
+                break;
+            }
+        }
+
+        while (1) {
+            printf("\tHoras do curso: ");
+            c.horas = lerSeForInteiro();
+
+            if (c.horas > 0 && c.horas < 10000) {
+                break;
+            }
+        }
+
+        while (1) {
+            printf("\tVagas do curso: ");
+            c.vagas = lerSeForInteiro();
+
+            if (c.vagas > 0 && c.vagas < 10000) {
+                break;
+            }
+        }
+
+        system("clear");
+        continuarLoop = confirmarCurso(c);
+    }
+
+    system("exit");
+}
+
+int cadastrarCurso(Curso c) {
+    FILE *arquivo;
+    char linha[256];
+
+    arquivo = fopen(CURSOS_ARQUIVO, "r");
+    if (arquivo != NULL) {
+        while (fgets(linha, sizeof(linha), arquivo) != NULL) {
+            char codigoExistente[20];
+            int i = 0;
+
+            while (linha[i] != '\0' && linha[i] != '#' && i < 19) {
+                codigoExistente[i] = linha[i];
+                i++;
+            }
+            codigoExistente[i] = '\0';
+
+            if (strcmp(codigoExistente, c.codigo[0]) == 0) {
+                fclose(arquivo);
+                return 1;
+            }
+        }
+        fclose(arquivo);
+    }
+
+    arquivo = fopen(CURSOS_ARQUIVO, "a");
+    if (arquivo == NULL) {
+        printf("\n\tNão foi possível abrir o arquivo!");
+        return 1;
+    }
+
+    fprintf(arquivo, "%s#%s#%i#%i\n", c.codigo[0], c.nome, c.horas, c.vagas);
+    fclose(arquivo);
+
+    return 0;
+}
+
+int confirmarCurso(Curso c) {
+    char opt[100];
+
+    printf("\n\t[Criação de curso]\n");
+    printf("\n\tCódigo do curso: %s\n", c.codigo[0]);
+    printf("\tNome do curso: %s\n", c.nome);
+    printf("\tHoras do curso: %i\n", c.horas);
+    printf("\tVagas do curso: %i\n", c.vagas);
+
+    printf("\n\n\tConfirmar curso? [S/N]");
+    printf("\n\tResposta: ");
+    scanf("%99s", opt); getchar();
+
+    if (opt[0] == 'S' || opt[0] == 's') {
+        if (cadastrarCurso(c) == 1) {
+            system("clear");
+            printf("------> CÓDIGO JÁ EXISTENTE");
+            return confirmarCurso(c);
+        }
+        return 0;
+    }
+    if (opt[0] == 'N' || opt[0] == 'n') {
+        system("clear");
+        return 1;
+    } else {
+        system("clear");
+        printf("------> RESPONDA APENAS COM AS OPÇÕES NA TELA");
+        return confirmarCurso(c);
     }
 }
 
