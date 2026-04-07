@@ -16,6 +16,7 @@ void g();
 
 void resultado(FILE *f, char p[51]);
 
+#include "../src/listagemA.c"
 #include "../src/listagemC.c"
 #include "../src/resultado.c"
 

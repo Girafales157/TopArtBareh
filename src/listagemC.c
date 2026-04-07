@@ -1,5 +1,5 @@
-#ifndef LISTAGEM_C
-#define LISTAGEM_C
+#ifndef LISTAGEMC_C
+#define LISTAGEMC_C
 
 #include <stdio.h>
 #include <string.h>
@@ -19,15 +19,13 @@ void c(){
     if ( (arq = fopen(ARQUIVO, "r")) == NULL ) system("exit");
 
     /* O QUE TÁ FALTANDO: 
-        - Fazer com que a linha inteira onde aquele nome se encontra seja lida;
-        - Formatar os dados;
         - Repetir e reformular este código em todas as outras listagens;
         - Também preciso impedir que outro aluno se matricule com alguém de mesmo CPF;
     */
     
     while (1)
     {
-        printf("\n\t[LISTAGEM: Nome]\n");
+        printf("\n\t[PROCURAR: Nome]\n");
         printf("\n\tEscreva uma palavra do nome: ");
         scanf("%s", &palavra); getchar();
         printf("\n");

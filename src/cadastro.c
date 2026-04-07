@@ -1,5 +1,5 @@
-#ifndef DISCENTES_C
-#define DISCENTES_C
+#ifndef CADASTRO_C
+#define CADASTRO_C
 
 #include <string.h>
 #include <ctype.h>
@@ -47,7 +47,7 @@ void matricular() {
         while (1)
         {
             printf("\tNome do aluno: ");
-            fgets(d.nome, 51, stdin);
+            fgets(d.nome, 47, stdin);
             fflush(stdin);
 
             for (int i = 0; d.nome[i] != '\0'; i++) {
@@ -63,7 +63,7 @@ void matricular() {
             printf("\tIdade do aluno: ");
             d.idade = lerSeForInteiro();
             
-            if ( d.idade < 121 && d.idade > 0)
+            if (d.idade < 121 && d.idade > 0)
                 break;
         }
 

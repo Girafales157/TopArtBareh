@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../lib/func.h"
-#include "../lib/discentes.h"
+#include "../lib/cadastro.h"
 #include "../lib/listagem.h"
 
 void menu(){
@@ -151,7 +151,7 @@ void relatorios(){
     system("clear");
 
     switch (i){
-        case 1:
+        case 1: a(); break;
         case 2:
         case 3: c(); break;
         case 4:
