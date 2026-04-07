@@ -17,11 +17,6 @@ void c(){
 
     // fecha o programa se não conseguir ler o arquivo
     if ( (arq = fopen(ARQUIVO, "r")) == NULL ) system("exit");
-
-    /* O QUE TÁ FALTANDO: 
-        - Repetir e reformular este código em todas as outras listagens;
-        - Também preciso impedir que outro aluno se matricule com alguém de mesmo CPF;
-    */
     
     while (1)
     {

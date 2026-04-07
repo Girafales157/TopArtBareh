@@ -17,7 +17,12 @@ void g();
 void resultado(FILE *f, char p[51]);
 
 #include "../src/listagemA.c"
+#include "../src/listagemB.c"
 #include "../src/listagemC.c"
+#include "../src/listagemD.c"
+#include "../src/listagemE.c"
+#include "../src/listagemF.c"
+#include "../src/listagemG.c"
 #include "../src/resultado.c"
 
 

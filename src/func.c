@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "../lib/func.h"
 #include "../lib/cadastro.h"
+#include "../lib/remover.h"
 #include "../lib/listagem.h"
 
 void menu(){
@@ -66,6 +67,13 @@ void discentes(){
     switch (i){
         case 1:
             matricular();
+            break;
+        case 2:
+            editarAluno();
+            break;
+        case 3:
+            eliminarAluno();
+            break;
         case 0:
             menu();
             break;
@@ -96,6 +104,12 @@ void cursos(){
         case 1:
             criarCurso();
             break;
+        case 2:
+            editarCurso();
+            break;
+        case 3:
+            extinguirCurso();
+            break;
         case 0:
             menu();
             break;
@@ -123,6 +137,15 @@ void turmas(){
     system("clear");
 
     switch (i){
+        case 1:
+            criarTurma();
+            break;
+        case 2:
+            editarTurma();
+            break;
+        case 3:
+            extinguirTurma();
+            break;
         case 0:
             menu();
             break;
@@ -140,7 +163,7 @@ void relatorios(){
     printf("\n\tRelatórios\n");
     printf("\t==================================================\n");
     printf("\t1. Listagem do cpf, nome e idade dos discentes.\n");
-    printf("\t2. Listagem dos códigos, nomes, horas e número de\n\t   vagas dos cursos.\n");
+    printf("\t2. Listagem dos códigos, nomes, horas, número de\n\t   vagas e vagas disponíveis dos cursos.\n");
     printf("\t3. Listagem de todos os discentes a partir de uma\n\t   palavra do nome.\n");
     printf("\t4. Listagem do número da turma, cpf, nome e nota\n\t   do discente.\n");
     printf("\t5. Listagem dos números das turmas, cpf, nome e\n\t   nota do discente, bem como o código e nome\n\t   do curso.\n");
@@ -155,12 +178,12 @@ void relatorios(){
 
     switch (i){
         case 1: a(); break;
-        case 2:
+        case 2: b(); break;
         case 3: c(); break;
-        case 4:
-        case 5:
-        case 6:
-        case 7:
+        case 4: d(); break;
+        case 5: e(); break;
+        case 6: f(); break;
+        case 7: g(); break;
         case 0:
             menu();
             break;
@@ -199,10 +222,10 @@ void sair(){
     char opt;
     printf("\n\n\tVocê tem certeza de que deseja sair? [S/N]");
     printf("\n\tResposta: ");
-    scanf("%c", &opt);
+    scanf(" %c", &opt);
     if (opt == 'S' || opt == 's' || opt == '0'){
         system("clear");
-        system("exit");
+        exit(0);
     } else {
         system("clear");
         menu();
